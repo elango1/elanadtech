@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+header, footer { background: #333; color: white; padding: 10px; }
+nav ul { list-style: none; display: flex; gap: 15px; }
+nav ul li { display: inline; }
+nav ul li a { color: white; text-decoration: none; }
+.product, .product-detail { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; }

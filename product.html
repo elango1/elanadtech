@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header><a href="index.html">← Back to Home</a></header>
+  <main>
+    <h1>Product Details</h1>
+    <div class="product-detail" data-product-id="101" data-product-name="Sample Product" data-product-price="10">
+      <img src="https://via.placeholder.com/200" alt="Product Image">
+      <p>Product Name: Sample Product</p>
+      <p>Price: $10</p>
+      <button id="add-to-cart">Add to Cart</button>
+    </div>
+  </main>
+  <script>
+    document.getElementById('add-to-cart').addEventListener('click', function () {
+      const productDiv = document.querySelector('.product-detail');
+      const productId = productDiv.getAttribute('data-product-id');
+      const productName = productDiv.getAttribute('data-product-name');
+      const productPrice = productDiv.getAttribute('data-product-price');
+
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        event: 'add_to_cart',
+        ecommerce: {
+          items: [{
+            item_id: productId,
+            item_name: productName,
+            price: parseFloat(productPrice),
+            quantity: 1
+          }]
+        }
+      });
+
+      alert('Product added to cart (event pushed to dataLayer)');
+    });
+  </script>
+</body>
+</html>
